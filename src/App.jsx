@@ -6,18 +6,6 @@ import {
   useSpring,
 } from "framer-motion";
 
-/**
- * Valentine Week Surprise Web App
- * - Single-file React component
- * - Tailwind CSS expected
- * - Animations via Framer Motion
- *
- * How to use:
- * 1) Paste this file as App.jsx (Vite/CRA) or as a page component (Next.js client component).
- * 2) Replace PHOTO URL placeholders in STEPS with your girlfriend's photos.
- * 3) Optionally change names + messages.
- */
-
 const clamp = (n, min, max) => Math.min(max, Math.max(min, n));
 
 function HeartBackground() {
@@ -138,7 +126,7 @@ function PhotoGrid({ photos = [], accent = "rose" }) {
       `https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=900&q=80&sig=${i}`,
   );
 
-  const items = (photos?.length ? photos : fallback).slice(0, 6);
+  const items = (photos?.length ? photos : fallback).slice(0, 8);
 
   return (
     <motion.div
@@ -519,13 +507,6 @@ function AudioBar({ src = "/audio/love.mp3" }) {
             <span className="opacity-40">•</span>
             <span>{ready ? fmt(dur) : "…"}</span>
           </div>
-
-          {/* autoplay hint (optional; remove if you want) */}
-          {blocked && (
-            <div className="mt-1 text-center text-[11px] font-semibold text-rose-700/80">
-              Tap play once — your browser blocked autoplay.
-            </div>
-          )}
         </div>
       </div>
     </>
@@ -667,6 +648,17 @@ function HeartRevealOverlay({ show, images = [] }) {
 }
 
 export default function ValentineWeekSurpriseApp() {
+  const VALENTINE_HEART_IMAGES = [
+    "images/f1.jpeg",
+    "images/f2.jpeg",
+    "images/f3.jpeg",
+    "images/f4.jpeg",
+    "images/f5.jpeg",
+    "images/f6.jpeg",
+    "images/f7.jpeg",
+    "images/f8.jpeg",
+  ].filter(Boolean);
+
   const [heartShow, setHeartShow] = useState(false);
 
   // Personalize these
@@ -682,13 +674,14 @@ export default function ValentineWeekSurpriseApp() {
         accent: "rose",
         title: "A rose for the way you make my life bloom 🌹",
         metaphor:
-          "Like a rose, you’re soft and strong at the same time — and you make ordinary days feel special. Today I’m gifting you this rose… as a promise to keep choosing you.",
+          "Like a rose, you’re soft and strong at the same time — and you make ordinary days feel special. You are the rose of my life and i will always protect you my love.",
         photos: [
           // Replace these with her photos (3 to 6)
-          "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=900&q=80",
-          "https://images.unsplash.com/photo-1520975958221-6f40f1c7b7f6?auto=format&fit=crop&w=900&q=80",
+          "images/rose1.jpeg",
           "https://images.unsplash.com/photo-1518895949257-7621c3c786d7?auto=format&fit=crop&w=900&q=80",
+          "images/rose2.jpeg",
           "https://images.unsplash.com/photo-1518895949257-7621c3c786d7?auto=format&fit=crop&w=900&q=80",
+          "images/rose3.jpeg",
           "https://images.unsplash.com/photo-1518895949257-7621c3c786d7?auto=format&fit=crop&w=900&q=80",
         ].filter(Boolean),
       },
@@ -697,16 +690,16 @@ export default function ValentineWeekSurpriseApp() {
         dayLabel: "Propose Day",
         dateLabel: "8 Feb",
         accent: "pink",
-        title: "I choose you — again and again 💍",
+        title: "I propose you — again and again 💍",
         metaphor:
           "If love were a decision, I’d still pick you every time. Today is my little way of saying: I’m proud of us, and I want more of you in my tomorrows.",
         photos: [
-          "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=900&q=80",
-          "https://images.unsplash.com/photo-1528459801416-a9e53bbf4e17?auto=format&fit=crop&w=900&q=80",
-          "https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?auto=format&fit=crop&w=900&q=80",
-          "",
-          "",
-          "",
+          "https://plus.unsplash.com/premium_photo-1674068279574-92b0a56e660e?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+          "images/propose1.jpeg",
+          "https://plus.unsplash.com/premium_photo-1674068279574-92b0a56e660e?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+          "images/propose2.jpeg",
+          "https://plus.unsplash.com/premium_photo-1674068279574-92b0a56e660e?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+          "images/propose3.jpeg",
         ].filter(Boolean),
       },
       {
@@ -716,14 +709,14 @@ export default function ValentineWeekSurpriseApp() {
         accent: "fuchsia",
         title: "Sweet like you 🍫",
         metaphor:
-          "Chocolate is sweet… but somehow you’re sweeter. You turn stress into calm and silence into comfort. Here’s to the tiny moments that taste better because you’re in them.",
+          "Chocolate is sweet… but somehow you’re the sweetest. You turn stress into calm and silence into comfort. Here’s to the tiny moments that taste better because you.",
         photos: [
-          "https://images.unsplash.com/photo-1481391032119-d89fee407e5a?auto=format&fit=crop&w=900&q=80",
-          "https://images.unsplash.com/photo-1541592106381-b31e9677c0e5?auto=format&fit=crop&w=900&q=80",
-          "https://images.unsplash.com/photo-1528825871115-3581a5387919?auto=format&fit=crop&w=900&q=80",
-          "",
-          "",
-          "",
+          "images/choco1.jpeg",
+          "https://images.unsplash.com/photo-1582176604856-e824b4736522?q=80&w=686&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+          "images/choco2.jpeg",
+          "https://images.unsplash.com/photo-1582176604856-e824b4736522?q=80&w=686&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+          "images/choco3.jpeg",
+          "https://images.unsplash.com/photo-1582176604856-e824b4736522?q=80&w=686&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
         ].filter(Boolean),
       },
       {
@@ -731,16 +724,16 @@ export default function ValentineWeekSurpriseApp() {
         dayLabel: "Teddy Day",
         dateLabel: "10 Feb",
         accent: "rose",
-        title: "Your comfort is my favorite place 🧸",
+        title: "You’re My Safe Place in a Loud World 🧸",
         metaphor:
-          "A teddy is for warm hugs on days you feel small. But honestly… you’re my comfort too. When you’re around, everything feels softer.",
+          "A teddy is for warm hugs on days you feel small. But for me… you’re the comfort. When you’re around, everything feels softer and lighter.",
         photos: [
-          "https://images.unsplash.com/photo-1606755962773-0a4d2f1e4b5a?auto=format&fit=crop&w=900&q=80",
-          "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=900&q=80",
-          "https://images.unsplash.com/photo-1520974735194-6b77b9b3dc1a?auto=format&fit=crop&w=900&q=80",
-          "",
-          "",
-          "",
+          "https://imgs.search.brave.com/dSK_B-zjrx050JEmgywn6WgCZscoGoqjBwOww0V-ZJM/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tLm1l/ZGlhLWFtYXpvbi5j/b20vaW1hZ2VzL0kv/NjFMMGthVVV5Z0wu/anBn",
+          "images/teddy3.jpeg",
+          "https://imgs.search.brave.com/dSK_B-zjrx050JEmgywn6WgCZscoGoqjBwOww0V-ZJM/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tLm1l/ZGlhLWFtYXpvbi5j/b20vaW1hZ2VzL0kv/NjFMMGthVVV5Z0wu/anBn",
+          "images/teddy2.jpeg",
+          "https://imgs.search.brave.com/dSK_B-zjrx050JEmgywn6WgCZscoGoqjBwOww0V-ZJM/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tLm1l/ZGlhLWFtYXpvbi5j/b20vaW1hZ2VzL0kv/NjFMMGthVVV5Z0wu/anBn",
+          "images/teddy1.jpeg",
         ].filter(Boolean),
       },
       {
@@ -748,16 +741,16 @@ export default function ValentineWeekSurpriseApp() {
         dayLabel: "Promise Day",
         dateLabel: "11 Feb",
         accent: "pink",
-        title: "My promise is simple: you matter 💗",
+        title: "My promise is simple: for you and with you always 💗",
         metaphor:
           "I promise to listen, to grow, to try — and to love you in the small everyday ways, not just the big romantic moments.",
         photos: [
-          "https://images.unsplash.com/photo-1524503033411-f7a2fe8c7f3e?auto=format&fit=crop&w=900&q=80",
-          "https://images.unsplash.com/photo-1522098543979-ffc7f79d6d0e?auto=format&fit=crop&w=900&q=80",
-          "https://images.unsplash.com/photo-1520975682030-3ae41e6b5a02?auto=format&fit=crop&w=900&q=80",
-          "",
-          "",
-          "",
+          "images/promise1.jpeg",
+          "https://images.unsplash.com/reserve/Af0sF2OS5S5gatqrKzVP_Silhoutte.jpg?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bG92ZXxlbnwwfHwwfHx8MA%3D%3D",
+          "images/promise2.jpeg",
+          "https://images.unsplash.com/reserve/Af0sF2OS5S5gatqrKzVP_Silhoutte.jpg?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bG92ZXxlbnwwfHwwfHx8MA%3D%3D",
+          "images/promise3.jpeg",
+          "https://images.unsplash.com/reserve/Af0sF2OS5S5gatqrKzVP_Silhoutte.jpg?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bG92ZXxlbnwwfHwwfHx8MA%3D%3D",
         ].filter(Boolean),
       },
       {
@@ -767,14 +760,14 @@ export default function ValentineWeekSurpriseApp() {
         accent: "fuchsia",
         title: "A hug that says everything 🤗",
         metaphor:
-          "Some things don’t need words. If this page could hug you, it would. Until then — imagine I’m holding you close, telling you ‘I’m here.’",
+          "Some things don’t need words. If this page could hug you, it would. Until then — imagine I’m holding you close, telling you ‘I’m here.’ and confessing that i love you so much.",
         photos: [
-          "https://images.unsplash.com/photo-1520975958221-6f40f1c7b7f6?auto=format&fit=crop&w=900&q=80",
-          "https://images.unsplash.com/photo-1524253482453-3fed8d2fe12b?auto=format&fit=crop&w=900&q=80",
-          "https://images.unsplash.com/photo-1520975682030-3ae41e6b5a02?auto=format&fit=crop&w=900&q=80",
-          "",
-          "",
-          "",
+          "https://imgs.search.brave.com/DLry5cWTp36HXRl7WtUpD5biw8zJoerl2khgPSKmDE8/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9zdGF0/aWMudmVjdGVlenku/Y29tL3N5c3RlbS9y/ZXNvdXJjZXMvdGh1/bWJuYWlscy8wMzcv/OTI3LzA3Ni9zbWFs/bC9haS1nZW5lcmF0/ZWQtdHdvLWNhdHMt/c251Z2dsaW5nLXRv/Z2V0aGVyLXR3by1h/ZG9yYWJsZS1raXR0/ZW5zLXNsZWVwaW5n/LXRvZ2V0aGVyLWNs/b3NlLXVwLWdlbmVy/YXRpdmUtYWktcGhv/dG8uanBn",
+          "images/hug1.jpeg",
+          "https://imgs.search.brave.com/DLry5cWTp36HXRl7WtUpD5biw8zJoerl2khgPSKmDE8/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9zdGF0/aWMudmVjdGVlenku/Y29tL3N5c3RlbS9y/ZXNvdXJjZXMvdGh1/bWJuYWlscy8wMzcv/OTI3LzA3Ni9zbWFs/bC9haS1nZW5lcmF0/ZWQtdHdvLWNhdHMt/c251Z2dsaW5nLXRv/Z2V0aGVyLXR3by1h/ZG9yYWJsZS1raXR0/ZW5zLXNsZWVwaW5n/LXRvZ2V0aGVyLWNs/b3NlLXVwLWdlbmVy/YXRpdmUtYWktcGhv/dG8uanBn",
+          "images/hug2.jpeg",
+          "https://imgs.search.brave.com/DLry5cWTp36HXRl7WtUpD5biw8zJoerl2khgPSKmDE8/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9zdGF0/aWMudmVjdGVlenku/Y29tL3N5c3RlbS9y/ZXNvdXJjZXMvdGh1/bWJuYWlscy8wMzcv/OTI3LzA3Ni9zbWFs/bC9haS1nZW5lcmF0/ZWQtdHdvLWNhdHMt/c251Z2dsaW5nLXRv/Z2V0aGVyLXR3by1h/ZG9yYWJsZS1raXR0/ZW5zLXNsZWVwaW5n/LXRvZ2V0aGVyLWNs/b3NlLXVwLWdlbmVy/YXRpdmUtYWktcGhv/dG8uanBn",
+          "images/hug3.jpeg",
         ].filter(Boolean),
       },
       {
@@ -784,14 +777,14 @@ export default function ValentineWeekSurpriseApp() {
         accent: "rose",
         title: "A kiss — for all the times you made me smile 😘",
         metaphor:
-          "A kiss is a tiny moment with a huge meaning: ‘I choose you.’ Thank you for being my favorite reason to smile.",
+          "If i could kiss you through this page, then i would. From the first kiss to the last, every kiss will be have a special place in my heart with a deep meaning and feeling.",
         photos: [
-          "https://images.unsplash.com/photo-1520975682030-3ae41e6b5a02?auto=format&fit=crop&w=900&q=80",
-          "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=900&q=80",
-          "https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?auto=format&fit=crop&w=900&q=80",
-          "",
-          "",
-          "",
+          "images/kiss1.jpeg",
+          "https://imgs.search.brave.com/fYWae5EClPrRSbQnqwMhS2uNeSqQMycAKoIlImUcQl4/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9zdGF0/aWMudmVjdGVlenku/Y29tL3N5c3RlbS9y/ZXNvdXJjZXMvdGh1/bWJuYWlscy8wNzEv/NzU5LzA2Mi9zbWFs/bC90d28tYWRvcmFi/bGUtY2F0LWZyaWVu/ZHMtc2hvdy1hZmZl/Y3Rpb24tYW5kLWxv/dmUtd2hpbGUtY3Vk/ZGxpbmctYW5kLWdy/b29taW5nLWVhY2gt/b3RoZXItY3V0ZS1n/aW5nZXItYW5kLXRh/YmJ5LWtpdHRlbi1w/YWlyLXJlbGF4LXRv/Z2V0aGVyLW9uLXNv/ZnQtY2F0LXRyZWUt/aW5kb29yLXBob3Rv/LmpwZWc",
+          "images/kiss2.jpeg",
+          "https://imgs.search.brave.com/fYWae5EClPrRSbQnqwMhS2uNeSqQMycAKoIlImUcQl4/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9zdGF0/aWMudmVjdGVlenku/Y29tL3N5c3RlbS9y/ZXNvdXJjZXMvdGh1/bWJuYWlscy8wNzEv/NzU5LzA2Mi9zbWFs/bC90d28tYWRvcmFi/bGUtY2F0LWZyaWVu/ZHMtc2hvdy1hZmZl/Y3Rpb24tYW5kLWxv/dmUtd2hpbGUtY3Vk/ZGxpbmctYW5kLWdy/b29taW5nLWVhY2gt/b3RoZXItY3V0ZS1n/aW5nZXItYW5kLXRh/YmJ5LWtpdHRlbi1w/YWlyLXJlbGF4LXRv/Z2V0aGVyLW9uLXNv/ZnQtY2F0LXRyZWUt/aW5kb29yLXBob3Rv/LmpwZWc",
+          "images/kiss3.jpeg",
+          "https://imgs.search.brave.com/fYWae5EClPrRSbQnqwMhS2uNeSqQMycAKoIlImUcQl4/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9zdGF0/aWMudmVjdGVlenku/Y29tL3N5c3RlbS9y/ZXNvdXJjZXMvdGh1/bWJuYWlscy8wNzEv/NzU5LzA2Mi9zbWFs/bC90d28tYWRvcmFi/bGUtY2F0LWZyaWVu/ZHMtc2hvdy1hZmZl/Y3Rpb24tYW5kLWxv/dmUtd2hpbGUtY3Vk/ZGxpbmctYW5kLWdy/b29taW5nLWVhY2gt/b3RoZXItY3V0ZS1n/aW5nZXItYW5kLXRh/YmJ5LWtpdHRlbi1w/YWlyLXJlbGF4LXRv/Z2V0aGVyLW9uLXNv/ZnQtY2F0LXRyZWUt/aW5kb29yLXBob3Rv/LmpwZWc",
         ].filter(Boolean),
       },
       {
@@ -801,14 +794,14 @@ export default function ValentineWeekSurpriseApp() {
         accent: "pink",
         title: "Okay… one last question 💞",
         metaphor:
-          "I built this little web app because you deserve effort, not just words. And because I want you to feel how important you are to me — in every phase, every day.",
+          "I built this little web page because you deserve effort, not just words. And because I want you to feel how important you are to me — in every phase, every day.",
         photos: [
-          "https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?auto=format&fit=crop&w=900&q=80",
-          "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=900&q=80",
-          "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=900&q=80",
-          "",
-          "",
-          "",
+          "https://imgs.search.brave.com/F5tbbvaqYJSGfRLEfuP7VzG0hAnerZ7wJ3M1B5V6su4/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9zdGF0/aWMudmVjdGVlenku/Y29tL3N5c3RlbS9y/ZXNvdXJjZXMvdGh1/bWJuYWlscy8wMzcv/OTc4LzE1NC9zbWFs/bC9haS1nZW5lcmF0/ZWQtcmVkLWhlYXJ0/LW9uLWEtcGluay1i/YWNrZ3JvdW5kLXZh/bGVudGluZS1zLWRh/eS1waG90by5qcGc",
+          "images/v1.jpeg",
+          "https://imgs.search.brave.com/F5tbbvaqYJSGfRLEfuP7VzG0hAnerZ7wJ3M1B5V6su4/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9zdGF0/aWMudmVjdGVlenku/Y29tL3N5c3RlbS9y/ZXNvdXJjZXMvdGh1/bWJuYWlscy8wMzcv/OTc4LzE1NC9zbWFs/bC9haS1nZW5lcmF0/ZWQtcmVkLWhlYXJ0/LW9uLWEtcGluay1i/YWNrZ3JvdW5kLXZh/bGVudGluZS1zLWRh/eS1waG90by5qcGc",
+          "images/v3.jpeg",
+          "https://imgs.search.brave.com/F5tbbvaqYJSGfRLEfuP7VzG0hAnerZ7wJ3M1B5V6su4/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9zdGF0/aWMudmVjdGVlenku/Y29tL3N5c3RlbS9y/ZXNvdXJjZXMvdGh1/bWJuYWlscy8wMzcv/OTc4LzE1NC9zbWFs/bC9haS1nZW5lcmF0/ZWQtcmVkLWhlYXJ0/LW9uLWEtcGluay1i/YWNrZ3JvdW5kLXZh/bGVudGluZS1zLWRh/eS1waG90by5qcGc",
+          "images/v4.jpeg",
         ].filter(Boolean),
       },
     ],
@@ -897,7 +890,7 @@ export default function ValentineWeekSurpriseApp() {
             whileHover={{ scale: 1.02 }}
           >
             <span className="h-2 w-2 rounded-full bg-rose-500" />
-            <span>Valentine Week • A little story for {HER_NAME}</span>
+            <span>Valentine Week • A little surprise for {HER_NAME}</span>
           </motion.div>
 
           <motion.h1
@@ -906,35 +899,17 @@ export default function ValentineWeekSurpriseApp() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.55, delay: 0.08, ease: "easeOut" }}
           >
-            7 Days, 7 Reasons — You Matter
+            7 Days, 7 Reasons — For My Love
           </motion.h1>
-
-          <motion.p
-            className="mx-auto mt-3 max-w-2xl text-sm text-rose-900/70 md:text-base"
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.55, delay: 0.14, ease: "easeOut" }}
-          >
-            Each day is a little metaphor — because love isn’t one big moment,
-            it’s many small ones.
-          </motion.p>
         </motion.div>
-
-        {/* Step pills removed — using only Back/Next buttons */}
 
         {/* Main Card */}
         <div className="relative mx-auto max-w-5xl">
           <CelebrationOverlay show={celebrate} />
           <HeartRevealOverlay
             show={heartShow}
-            images={step?.photos?.slice(0, 5)}
+            images={VALENTINE_HEART_IMAGES}
           />
-          {/* <CelebrationModal
-            open={showModal}
-            onClose={() => setShowModal(false)}
-            title="Yayyy! 💞"
-            message={`You just made my whole universe brighter. Happy Valentine’s Day, ${HER_NAME}.`}
-          /> */}
           <YesHeartBurst show={answer === "yes"} />
 
           <motion.div
@@ -1060,7 +1035,7 @@ export default function ValentineWeekSurpriseApp() {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.4, ease: "easeOut" }}
                       >
-                        Will you be my Valentine? 💘
+                        So...Will you be my Valentine? 💘
                       </motion.h3>
 
                       <motion.p
@@ -1088,7 +1063,7 @@ export default function ValentineWeekSurpriseApp() {
 
                             // Heart (30 seconds)
                             setHeartShow(true);
-                            window.setTimeout(() => setHeartShow(false), 30000);
+                            window.setTimeout(() => setHeartShow(false), 40000);
                           }}
                           className="relative cursor-pointer rounded-2xl bg-rose-600 px-6 py-3.5 text-sm font-extrabold text-white shadow-lg shadow-rose-200 md:text-base"
                           whileHover={{ scale: 1.03 }}
